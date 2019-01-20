@@ -11,7 +11,7 @@ test-snow: test.c $(CASES) snow/.git
 	$(CC) -Isnow $(FLAGS)  -o $@ $<
 
 cases/%: cases/%.c ../snow/snow.h
-	$(CC) -DSNOW_DUMMY_TIMER -I.. $(FLAGS) -o $@ $<
+	$(CC) -DSNOW_DUMMY_TIMER -I../include $(FLAGS) -o $@ $<
 
 snow/.git:
 	git clone -b experimentation https://github.com/mortie/snow.git snow

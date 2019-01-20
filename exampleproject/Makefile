@@ -3,14 +3,14 @@ TARGET = exampleproject
 SRC = src/main.c src/vector.c
 OBJ = $(patsubst src/%.c,obj/%.o,$(SRC))
 OBJ-TEST = $(patsubst src/%.c,obj-test/%.o,$(SRC))
-HDR = src/vector.h ../snow/snow.h
+HDR = src/vector.h ../include/snow/snow.h
 
 CFLAGS ?= -Wall -Wextra -Wpedantic -Werror
 VGFLAGS ?= \
 	--quiet --leak-check=full --show-leak-kinds=all \
 	--track-origins=yes --error-exitcode=1
 
-INCLUDE = -I..
+INCLUDE = -I../include
 
 $(TARGET): $(OBJ) $(HDR)
 	$(CC) $(CFLAGS) -o $@ $(OBJ)
